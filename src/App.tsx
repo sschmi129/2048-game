@@ -233,6 +233,7 @@ function App() {
         x = x - 1;
       }
     } else {
+      return;
     }
     let tempZeroValueArray: number[] = [];
     for (let i = 0; i < tiles.length; i++) {
@@ -241,10 +242,7 @@ function App() {
       }
     }
     //setTiles only if position or value changed
-    console.log(changed);
-
     if (changed === true) {
-      console.log('hallo');
 
       if (typeof (tempZeroValueArray) !== 'undefined') {
         tiles[tempZeroValueArray[Math.floor(tempZeroValueArray.length * Math.random())]].value = 2;
@@ -298,7 +296,7 @@ function App() {
       }
       return tileGrid;
     } else {
-      return <div></div>;
+      return <></>;
     }
   }
 
@@ -306,7 +304,7 @@ function App() {
     let tempMain = [];
     if (win === true) {
       tempMain.push(
-        <main className='Main'>
+        <main className="Main">
           <div className="GameField">
             {tileDrawer()}
           </div>
@@ -320,7 +318,7 @@ function App() {
     }
     if (lose === true) {
       tempMain.push(
-        <main className='Main'>
+        <main className="Main">
           <div className="GameField">
             {tileDrawer()}
           </div>
@@ -333,7 +331,7 @@ function App() {
       return tempMain;
     } else {
       tempMain.push(
-        <main className='Main'>
+        <main className="Main">
           <div className="GameField" >
             {tileDrawer()}
           </div>
@@ -344,12 +342,15 @@ function App() {
   }
 
   return (
-    <div className="App"  >
-      <header><h1>2048</h1></header>
+    <div className="App">
+      <header>
+        <h1>
+          2048
+        </h1>
+      </header>
       {mainDrawer()}
     </div>
   );
 }
 
 export default App;
-// onKeyDown={(e) => keyPressHandler(e)} tabIndex={0}

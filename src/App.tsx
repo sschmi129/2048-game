@@ -23,18 +23,15 @@ function App() {
   // const [i, setI] = useState<number>(0);
 
   useEffect(() => {
-    console.log('xxx');
     if (!win && !lose) {
       let i = Date.now();
       console.log('i: ' + i);
       const logger = (e: KeyboardEvent) => {
         i = i + 1000;
-        console.log('blabla');
         console.log(i);
       }
       window.addEventListener('keydown', keyPressHandler);
       return () => {
-        console.log('remove');
         window.removeEventListener('keydown', keyPressHandler);
       };
     }
